@@ -1,0 +1,15 @@
+services:
+  bot:
+    build: .
+    container_name: weather_bot
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - bot_network
+
+networks:
+  bot_network:
+    driver: bridge
